@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "docker-build-backend": "docker build -t docker.io/ilyeshammadi/hyf-backend ./backend ",
+    "docker-build-frontend": "docker build -t docker.io/ilyeshammadi/hyf-frontend ./frontend ",
+    "docker-push-backend": "docker push docker.io/ilyeshammadi/hyf-backend",
+    "docker-push-frontend": "docker push docker.io/ilyeshammadi/hyf-frontend",
+    "helm-upgrade": "helm upgrade backend ./k8s/backend --install && helm upgrade frontend ./k8s/frontend --install",
+    "pipeline": "npm run docker-build-backend && npm run docker-build-frontend && npm run docker-push-backend && npm run docker-push-frontend  && npm run helm-upgrade"
+  }
+}
